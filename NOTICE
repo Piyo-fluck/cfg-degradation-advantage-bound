@@ -1,0 +1,13 @@
+cfg-degradation-advantage-bound
+Copyright 2026 Shiyu Nagao and Akihiro Inokuchi
+
+This work describes and implements a modification of DiffusionNFT
+(https://github.com/NVlabs/DiffusionNFT), which is licensed under the
+Apache License, Version 2.0.
+
+docs/integration.md contains short excerpts of scripts/train_nft_sd3.py of
+the DiffusionNFT repository (commit cbb14f8), with the modifications
+described in that file.
+
+The prompt sets, model weights and reward models used in the experiments are
+not included in this repository.
