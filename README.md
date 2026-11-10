@@ -50,15 +50,15 @@ proposed objective as well.
 
 | path | contents |
 |---|---|
-| `group_bound/advantage.py` | DiffusionNFT advantage, group-standardized advantage, sign-stability gate |
-| `group_bound/loss.py` | mixing of the two regression losses for DiffusionNFT and the proposed objective |
-| `group_bound/evaluation.py` | evaluation seeds and standard errors |
+| `advantage_bound/advantage.py` | DiffusionNFT advantage, group-standardized advantage, sign-stability gate |
+| `advantage_bound/loss.py` | mixing of the two regression losses for DiffusionNFT and the proposed objective |
+| `advantage_bound/evaluation.py` | evaluation seeds and standard errors |
 | `tests/test_properties.py` | numerical checks of Propositions 1 and 2 and of the non-negative weights |
 | `docs/integration.md` | where the two changes go in the DiffusionNFT training script |
 | `docs/training.md` | training settings of every run |
 | `docs/evaluation.md` | evaluation protocol |
 
-`group_bound` returns the same advantages, gate and mixing weights as the code
+`advantage_bound` returns the same advantages, gate and mixing weights as the code
 that produced the results.
 
 ## Requirements

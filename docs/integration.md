@@ -12,14 +12,14 @@ change; the sampler, the rewards, the regression losses `positive_loss` /
 DiffusionNFT computes the advantage with
 `PerPromptStatTracker(config.sample.global_std)`. The default
 `global_std=True` divides by the standard deviation of all rewards of the update
-(`group_bound.batch_std_advantage`).
+(`advantage_bound.batch_std_advantage`).
 
 For the proposed objective, compute the group-standardized advantage and the
 gate from the same gathered prompts and rewards. The rewards are repeated over
 the training timesteps (line 723), so compute on one column and repeat:
 
 ```python
-from group_bound import group_standardized_advantage, sign_stability_gate
+from advantage_bound import group_standardized_advantage, sign_stability_gate
 
 rewards = gathered_rewards_dict["avg"]            # (num_samples, num_train_timesteps)
 adv = group_standardized_advantage(prompts_all_decoded, rewards[:, 0])
@@ -35,11 +35,11 @@ other per-sample tensors.
 ## 2. Mixing of the two losses (lines 928-929 and 959-960)
 
 DiffusionNFT mixes the losses with `r = clip(A, -C, C) / (2C) + 1/2` and scales
-by `C = config.train.adv_clip_max = 5` (`group_bound.nft_mixing`). Replace the
+by `C = config.train.adv_clip_max = 5` (`advantage_bound.nft_mixing`). Replace the
 mixing ratio and the scale:
 
 ```python
-from group_bound import proposed_mixing
+from advantage_bound import proposed_mixing
 
 lam, r = proposed_mixing(
     train_sample_batch["advantages"][:, j_idx],

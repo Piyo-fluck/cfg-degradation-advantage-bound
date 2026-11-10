@@ -5,7 +5,7 @@ import math
 import numpy as np
 import torch
 
-from group_bound import (
+from advantage_bound import (
     anchor_coefficient,
     group_standardized_advantage,
     nft_mixing,
